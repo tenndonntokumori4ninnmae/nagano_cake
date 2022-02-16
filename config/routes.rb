@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'public/homes#top'
   namespace :admin do
     resources :orders, only:[:index,:show]
     resources :customers, only:[:index,:show,:edit,:update]
@@ -6,10 +7,10 @@ Rails.application.routes.draw do
     resources :items, only:[:index,:show,:edit,:new,:update,:create]
   end
 
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
+
+    get '/', to:'public/homes#top'
+    get '/about', to:'public/homes#about'
+
   namespace :admin do
     get 'homes/top'
   end
