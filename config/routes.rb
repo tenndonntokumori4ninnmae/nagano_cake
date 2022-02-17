@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
 
   root to: 'public/homes#top'
+  
+  devise_for :customers, controllers: {
+  sessions:      'customers/sessions',
+  passwords:     'customers/passwords',
+  registrations: 'customers/registrations'
+}
 
   namespace :admin do
     resources :orders, only:[:index,:show]
@@ -44,11 +50,6 @@ Rails.application.routes.draw do
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
-}
-devise_for :customers, controllers: {
-  sessions:      'customers/sessions',
-  passwords:     'customers/passwords',
-  registrations: 'customers/registrations'
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
