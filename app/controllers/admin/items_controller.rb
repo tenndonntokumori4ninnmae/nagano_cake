@@ -4,6 +4,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -11,21 +12,28 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-  @items = Item.new(Item_params)
+  @item = Item.new(item_params)
     if @item.save
-      redirect_to admin_items_path(@item.id)
+      redirect_to admin_item_path(@item.id)
     else
       render :new #<= new から indexに変更
     end
   end
 
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to admin_item_path(@item.id)
+  end
+
 
   def edit
+    @item = Item.find(params[:id])
   end
 
    private
   # ストロングパラメータ
-  def Item_params
-    params.require(:Item).permit(:image_id, :name, :price, :is_active, :introduction)
+  def item_params
+    params.require(:item).permit(:image_id, :name, :price, :is_active, :introduction)
   end
 end
