@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   get '/orders/thanks', to: 'public/orders#thanks'
   get '/customers/out', to: 'public/customers#out'
 
-
    devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -43,6 +42,5 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes/top'
   end
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
