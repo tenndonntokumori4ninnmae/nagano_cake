@@ -24,7 +24,7 @@
 <table>
   <tr>
     <td>商品合計</td>
-    <td></td>
+    <td><%= @ordered_items.price %></td>
   </tr>
   <tr>
     <td>配送料</td>
@@ -50,9 +50,9 @@
     <% @ordered_items.each do |ordered_item| %>
     <tr>
       <td><%= ordered_item.item.name %></td>
-      <td></td>
+      <td><%= (ordered_item.item.price * 1.1)floor %></td>
       <td><%= ordered_item.amount %></td>
-      <td></td>
+      <td><%= (ordered_item.item.price * 1.1)floor * ordered_item.amount %></td>
     </tr>
     <% end %>
   </tbody>
