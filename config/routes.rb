@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   root to: 'public/homes#top'
-  
+
   devise_for :customers, controllers: {
   sessions:      'customers/sessions',
   passwords:     'customers/passwords',
@@ -18,12 +18,13 @@ Rails.application.routes.draw do
     resources :addresses, only:[:index,:edit,:update,:destroy,:create]
     resources :orders, only:[:index,:new,:show,:create]
     resources :cart_items, only:[:index,:create,:update,:destroy]
+    resources :ordered_items, only:[:index, :show]
   end
-  
-  
-  get '/orders/confirm', to: 'public/orders#confirm'
-  get '/orders/thanks', to: 'public/orders#thanks'
-  get '/customers/out', to: 'public/customers#out'
+
+
+  get '/confirm', to: 'public/orders#confirm'
+  get '/thanks', to: 'public/orders#thanks'
+  get '/out', to: 'public/customers#out'
 
    devise_for :admins, controllers: {
   sessions:      'admins/sessions',
