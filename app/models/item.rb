@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
   has_one_attached :image_id
 
 # 税込み計算
@@ -13,5 +14,4 @@ class Item < ApplicationRecord
     end
       image_id
   end  
-
 end
