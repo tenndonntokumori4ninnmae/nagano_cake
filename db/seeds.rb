@@ -11,3 +11,20 @@ Admin.create!(
    email: 'admins@admin',
    password: 'testtest'
 )
+Genre.create!(
+              name: "ケーキ",
+
+            )
+
+Genre.create!(
+              name: "プリン",
+
+            )
+Item.create!(
+              genre_id: 1,
+              image_id: nil,
+              name: "チーズケーキ",
+              introduction: "最高級生クリームを贅沢に使用。",
+              price: 1000,
+              is_active: true
+              )
