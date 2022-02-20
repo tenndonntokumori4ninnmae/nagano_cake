@@ -25,8 +25,9 @@ Rails.application.routes.draw do
 
   get '/orders/confirm', to: 'public/orders#confirm'
   get '/orders/thanks', to: 'public/orders#thanks'
-  get '/out', to: 'public/customers#out'
+  patch '/out', to: 'public/customers#out'
   get '/customers/my_page', to: 'public/customers#show'
+  get '/quit', to: 'public/customers#quit', as: 'quit'
 
 
    devise_for :admins, controllers: {

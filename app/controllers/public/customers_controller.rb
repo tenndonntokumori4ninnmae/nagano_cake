@@ -12,8 +12,17 @@ class Public::CustomersController < ApplicationController
     @customer.update(customer_params)
     redirect_to customer_path(@customer)
   end
+  
+  def quit
+  end  
 
   def out
+    @customer = current_customer
+    # is_deletedカラムにフラグを立てる
+    @customer.update(is_deleted: true)
+    # ログアウトさせる
+    reset_session
+    redirect_to root_path
   end
 
   private
