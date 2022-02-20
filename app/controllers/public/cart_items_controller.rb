@@ -8,7 +8,7 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
     @cart_item.save
-    redirect_to cart_item_path
+    redirect_to cart_items_path
   end
 
   def destroy_all
@@ -17,7 +17,8 @@ class Public::CartItemsController < ApplicationController
 
   
   private
-  def cart_items_params
-    params.require(:cart_item).permit(:amount, :item_id)
+  def cart_item_params
+    params.permit(:amount, :item_id)
   end
 
+end
