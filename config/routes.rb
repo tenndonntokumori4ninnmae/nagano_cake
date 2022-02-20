@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   patch '/out', to: 'public/customers#out'
   get '/customers/my_page', to: 'public/customers#show'
   get '/quit', to: 'public/customers#quit', as: 'quit'
+ 
 
 
    devise_for :admins, controllers: {
