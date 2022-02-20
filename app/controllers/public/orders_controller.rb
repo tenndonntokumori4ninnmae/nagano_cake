@@ -22,6 +22,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @order = Order.new(order_params)
   end
 
   def thanks
@@ -30,7 +31,8 @@ class Public::OrdersController < ApplicationController
   private
   # ストロングパラメータ
   def order_params
-    params.require(:order).permit(:customer_id, :postage, :total_price, :name, :postal_code, :address, :payment_method, :status)
+    params.permit(:customer_id, :postage, :total_price, :name, :postal_code, :address, :payment_method, :status)
   end
 
 end
+
