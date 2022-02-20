@@ -13,6 +13,7 @@
         </tr>
     </thead>
     
+    <%=total_price=0%>
     <%@cart_items.each do |cart_item|%>
       <tbody>
           <td>
@@ -29,12 +30,13 @@
             <%end%>
           </td>
           <td>
-            <%= cart_item.subtotal.to_s(:delimited) %>
+            <%=cart_item.subtotal.to_s(:delimited) %>
           </td>
           <td>
             <%=link_to "削除する",cart_item_path(cart_item),method: :delete%>
           </td>
       </tbody>
+      <%total_price +=cart_item.subtotal %>
     <%end%>
 </table>
 
@@ -43,7 +45,8 @@
 <table>
   <tr>
     <th>合計金額</th>
-    <td></td>
+    <td><%=total_price.to_s(:delimited)%>
+    </td>
   </tr>
 </table>
 
