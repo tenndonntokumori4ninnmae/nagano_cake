@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     resources :addresses, only:[:index,:edit,:update,:destroy,:create]
     resources :orders, only:[:index,:new,:show,:create]
     resources :cart_items, only:[:index,:create,:update,:destroy]
-    resources :ordered_items, only:[:index, :show]
   end
 
 
