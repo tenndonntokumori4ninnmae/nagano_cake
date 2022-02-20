@@ -12,7 +12,10 @@
   <%= f.text_area :address, autofocus: true, id:"inputAddress", placeholder:"住所" %><br>
   <label>メールアドレス</label>
   <%= f.text_field :email, autofocus: true, id:"inputEmail", placeholder:"メールアドレス" %><br>
-  <%= f.submit "編集内容を保存する" %>|<%= f.submit "退会" %>
+  <%= f.submit "編集内容を保存する" %>
+
+<%= link_to "退会する", quit_path(current_customer) %>
+
 
 
 <% end %>
