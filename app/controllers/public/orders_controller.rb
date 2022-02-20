@@ -13,9 +13,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders
   end
 
   def show
+    @order = Order.find(params[:id])
+    @ordered_items = @order.ordered_items
   end
 
   def confirm
