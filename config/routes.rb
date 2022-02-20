@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/orders/thanks', to: 'public/orders#thanks'
   get '/out', to: 'public/customers#out'
   get '/customers/my_page', to: 'public/customers#show'
+  delete '/cart_items', to: 'public/cart_items#destroy_all',as: 'all_destroy'
 
    devise_for :admins, controllers: {
   sessions:      'admins/sessions',
