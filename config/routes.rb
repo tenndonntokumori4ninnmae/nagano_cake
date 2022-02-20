@@ -18,17 +18,14 @@ Rails.application.routes.draw do
     resources :addresses, only:[:index,:edit,:update,:destroy,:create]
     resources :orders, only:[:index,:new,:show,:create]
     resources :cart_items, only:[:index,:create,:update,:destroy]
-    resources :ordered_items, only:[:index, :show]
   end
-
 
 
   get '/orders/confirm', to: 'public/orders#confirm'
   get '/orders/thanks', to: 'public/orders#thanks'
-  patch '/out', to: 'public/customers#out'
+  get '/out', to: 'public/customers#out'
   get '/customers/my_page', to: 'public/customers#show'
   delete '/cart_items', to: 'public/cart_items#destroy_all',as: 'all_destroy'
-  get '/quit', to: 'public/customers#quit', as: 'quit'
 
    devise_for :admins, controllers: {
   sessions:      'admins/sessions',

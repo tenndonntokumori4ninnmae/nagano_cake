@@ -25,6 +25,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def thanks
+    @customer.cart_item = current_customer.cart_item
   end
 
   private
