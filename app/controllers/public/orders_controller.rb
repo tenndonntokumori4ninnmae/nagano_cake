@@ -31,17 +31,16 @@ class Public::OrdersController < ApplicationController
 
 
   def create
-    @order = current_customer.oerders.new(order_params)
+    @order = current_customer.orders.new(order_params)
     @order.customer_id = current_customer.id
     @cart_items = current_customer.cart_items
     if @order.save
       @cart_items.each do |cart_item|
        @ordered_item = OrderedItem.new(order_id: @order.id, item_id: cart_item.item_id, amount: cart_item.amount, price: cart_item.item.price)
        @ordered_item.save
-        # current_customer.cart_items.destroy_all
+        current_customer.cart_items.destroy_all
       redirect_to thanks_path
       end
-      redirect_to orders_path(@order.id)
     else
       render :index
     end
@@ -64,8 +63,7 @@ class Public::OrdersController < ApplicationController
 
   private
   # ストロングパラメータ
-  def order_params
-    params.require(:order).permit(:customer_id, :postage, :total_price, :name, :postal_code, :address, :payment_method, :status)
+
 
   def address_params
     params.require(:order).permit(:postal_code,:address,:name)
