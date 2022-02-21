@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
 
 
@@ -21,22 +22,16 @@ Rails.application.routes.draw do
   end
 
 
-<<<<<<< HEAD
-  get '/orders/confirm', to: 'public/orders#confirm'
-  get '/orders/thanks', to: 'public/orders#thanks'
-  get '/out', to: 'public/customers#out'
-  get '/customers/my_page', to: 'public/customers#show'
-  delete '/cart_items', to: 'public/cart_items#destroy_all',as: 'all_destroy'
-=======
 
-  get '/confirm', to: 'public/orders#confirm'
+  post '/confirm', to: 'public/orders#confirm',as: 'confirm'
   get '/thanks', to: 'public/orders#thanks',as: 'thanks'
   patch '/out', to: 'public/customers#out'
   get '/customers/my_page', to: 'public/customers#show'
   delete '/cart_items', to: 'public/cart_items#destroy_all',as: 'all_destroy'
   get '/quit', to: 'public/customers#quit', as: 'quit'
- 
->>>>>>> c61cfc8001bc265133e061d2d497641937711c18
+
+
+
 
    devise_for :admins, controllers: {
   sessions:      'admins/sessions',
