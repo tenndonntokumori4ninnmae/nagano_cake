@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
 
 
-  get '/confirm', to: 'public/orders#confirm'
+  post '/confirm', to: 'public/orders#confirm',as: 'confirm'
   get '/thanks', to: 'public/orders#thanks',as: 'thanks'
   patch '/out', to: 'public/customers#out'
   get '/customers/my_page', to: 'public/customers#show'
