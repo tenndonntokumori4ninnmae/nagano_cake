@@ -12,7 +12,7 @@
             <th></th>
         </tr>
     </thead>
-    
+
     <%total_price=0%>
     <%@cart_items.each do |cart_item|%>
       <tbody>
@@ -24,7 +24,7 @@
             <%=cart_item.item.add_tax_price.to_s(:delimited) %>
           </td>
           <td>
-            
+
           </td>
           <td>
             <%=cart_item.subtotal.to_s(:delimited) %>
