@@ -5,7 +5,13 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    @cart_items = current_customer.cart_items
     if @order.save
+      @cart_items.each do |cart_item|
+       @ordered_item = OrderedItem.new(order_id: @order.id, item_id: cart_item.item_id, amount: cart_item.amount, price: cart_item.item.price)
+       @ordered_item.save
+      end
       redirect_to orders_path(@order.id)
     else
       render :index
@@ -31,7 +37,7 @@ class Public::OrdersController < ApplicationController
   private
   # ストロングパラメータ
   def order_params
-    params.permit(:customer_id, :postage, :total_price, :name, :postal_code, :address, :payment_method, :status)
+    params.require(:order).permit(:customer_id, :postage, :total_price, :name, :postal_code, :address, :payment_method, :status)
   end
 
 end
