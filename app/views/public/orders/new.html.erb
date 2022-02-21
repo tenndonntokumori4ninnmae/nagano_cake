@@ -1,4 +1,4 @@
-<%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+<%= form_with model: @order, url: confirm_path, method: :post, local: true do |f| %>
   <h2>支払方法</h2>
   <%= f.radio_button :payment_method, "0" %>
   <%= f.label :payment_method, "クレジットカード" %>
