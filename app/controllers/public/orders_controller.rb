@@ -6,7 +6,7 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
       # if params[:address_id]== "0"
-      #   @order.postal_code=current_customer.postal_code
+      #   @order.postal_code=current_customer.postcode
       #   @order.address=current_customer.address
       #   @order.name="#{current_customer.family_name}#{current_customer.first_name}"
       # elsif params[:address_id]== "1"
