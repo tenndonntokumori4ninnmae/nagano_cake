@@ -27,5 +27,5 @@
     <td><%= @customer.email %></td>
   </tr>
 </table>
-<p>配送先</p>
+<p><%= link_to "配送先", addresses_path(@customer.id) %></p>
 <p>注文履歴</p>
