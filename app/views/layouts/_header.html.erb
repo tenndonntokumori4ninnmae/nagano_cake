@@ -5,13 +5,13 @@
        <ul class="nav navbar-nav navbar-right">
          <% if admin_signed_in? %>
          <li class="nav-item">
-           <%= link_to admin_items_path do %><span class="text-light text-white nav-link"><i class="fas fa-pie"></i>商品一覧</span><% end %>
+           <%= link_to admin_items_path do %><span class="text-light text-white nav-link"><i class="fa-solid fa-cake-candles"></i>商品一覧</span><% end %>
          </li>
          <li>
            <%= link_to admin_customers_path do %><span class="text-light text-white nav-link"><i class="fas fa-user"></i>会員一覧</span><% end %>
          </li>
          <li>
-           <%= link_to admin_orders_path do %><span class="text-light text-white nav-link"><i class="fas fa-bags-shopping"></i>注文一覧</span><% end %>
+           <%= link_to admin_orders_path do %><span class="text-light text-white nav-link"><i class="fa-solid fa-bag-shopping"></i></i>注文一覧</span><% end %>
          </li>
          <li>
            <%= link_to admin_genres_path do %><span class="text-light text-white nav-link"><i class="fas fa-ice-cream"></i>ジャンル一覧</span><% end %>
@@ -21,20 +21,20 @@
          </li>
          <% elsif customer_signed_in? %>
          <li>
-           <%= link_to customer_path(current_customer) do %><span class="text-light text-white nav-link"><i class="fas fa-user-crown"></i>マイページ</span><% end %>
+           <%= link_to customer_path(current_customer) do %><span class="text-light text-white nav-link"><i class="fa-solid fa-user"></i>マイページ</span><% end %>
          </li>
          <li>
            <%= link_to items_path do %><span class="text-light text-white nav-link"><i class="fas fa-birthday-cake"></i>商品一覧</span><% end %>
          </li>
          <li>
-           <%= link_to cart_items_path do %><span class="text-light text-white nav-link"><i class="far fa-shopping-cart"></i>カート</span><% end %>
+           <%= link_to cart_items_path do %><span class="text-light text-white nav-link"><i class="fa-solid fa-cart-shopping"></i>カート</span><% end %>
          </li>
          <li>
            <%= link_to destroy_customer_session_path, method: :delete do %><span class="text-light text-white nav-link"><i class="fas fa-sign-out-alt"></i>ログアウト</span><% end %>
          </li>
          <% else %>
          <li>
-           <%= link_to about_path do %><span class="text-light text-white nav-link"><i class="far fa-cookie"></i>About</span><% end %>
+           <%= link_to about_path do %><span class="text-light text-white nav-link"><i class="fas fa-solid fa-cookie"></i>About</span><% end %>
          </li>
          <li>
            <%= link_to items_path do %><span class="text-light text-white nav-link"><i class="fas fa-birthday-cake"></i>商品一覧</span><% end %>
