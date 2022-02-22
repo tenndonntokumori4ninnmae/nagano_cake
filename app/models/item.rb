@@ -2,6 +2,7 @@ class Item < ApplicationRecord
 
   has_one_attached :image_id
   has_many :cart_items, dependent: :destroy
+  has_many :ordered_items, dependent: :destroy
 
 # 税込み計算
   def add_tax_price
