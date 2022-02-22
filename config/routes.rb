@@ -41,10 +41,11 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :orders, only:[:index,:show]
+    resources :orders, only:[:index,:show,:update]
     resources :customers, only:[:index,:show,:edit,:update]
     resources :genres, only:[:index,:edit,:update,:create]
     resources :items, only:[:index,:show,:edit,:new,:update,:create]
+    resources :ordered_items, only:[:update]
   end
 
   namespace :admin do
