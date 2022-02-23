@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <div class="col">
       <h2>注文履歴一覧</h2>
@@ -28,12 +28,18 @@
             </td>
             <td>
               <div class="text-left">
+                <% items_price = 0 %>
+                <% all_price = 0 %>
                 <% order.ordered_items.each do |ordered_item| %>
-                <%= ordered_item.item.name %>
+                <%= ordered_item.item.name %><br>
+                <% items_price += ordered_item.item.add_tax_price * ordered_item.amount %>
                 <% end %>
               </div>
             </td>
-            <td><div class="text-left"><%= order.total_price.to_s(:delimited) %>円</div></td>
+            <td><div class="text-left">
+            <%all_price ="800".to_i + items_price%>
+            <%= all_price.to_s(:delimited) %>
+            </div></td>
             <td><div class="text-left"><%= order.status_i18n %></div></td>
             <td><%= link_to '表示する', order_path(order.id), class: 'btn btn-primary' %></td>
           </tr>

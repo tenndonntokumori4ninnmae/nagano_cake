@@ -6,6 +6,7 @@ class Address < ApplicationRecord
   end
 
   validates :postal_code, length: {is: 7}, numericality: {only_integer: true}
-	validates :address,:name, presence: true
+
+	validates :name, presence: true
 
 end
