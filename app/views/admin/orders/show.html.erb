@@ -89,6 +89,8 @@
           </tr>
           <tr>
               <th>請求金額合計</th>
+              <td><%item=items_price+@order.postage%>
+              <%=item%>円
               <td>
                 <% item=items_price+@order.postage%>
                 <%= item.to_s(:delimited) %>円
