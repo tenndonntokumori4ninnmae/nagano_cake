@@ -41,7 +41,6 @@ class Public::OrdersController < ApplicationController
         current_customer.cart_items.destroy_all
       end
       redirect_to thanks_path
-
     else
       render :index
     end

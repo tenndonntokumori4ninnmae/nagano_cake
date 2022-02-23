@@ -31,14 +31,14 @@
           <% @items.each do |item| %>
           <tr>
             <td><%= item.id %></td>
-            <td><%= link_to item.name, item_path(item.id) %></td>
+            <td><%= link_to item.name, admin_item_path(item.id) %></td>
             <td><%= item.price.to_s(:delimited) %></td>
             <td></td>
 
             <% if item.is_active == true %>
               <td>販売中</td>
             <% else %>
-              <td>false</td>
+              <td>販売停止中</td>
             <% end %>
 
           </tr>
