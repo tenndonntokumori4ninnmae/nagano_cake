@@ -1,17 +1,31 @@
-<h1>商品詳細</h1>
-<% if @item.image_id.attached? %>
-  <%= image_tag @item.image_id, size: "200x200" %>
-<% else %>
-  <%= image_tag 'no_image', size: "200x200" %>
-<% end %>
-<p>商品名：<%= @item.name %></p>
-<p>商品説明：<%= @item.introduction %></p>
-<p>¥<%= @item.add_tax_price.to_s(:delimited) %>（税込み）</p>
-<%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
-  <%= f.hidden_field :item_id, :value => @item.id.to_s %>
-  <p>数量
-   <%= f.select :amount, *[1..10] %>
-  </p>
-  <%= f.submit 'カートに入れる' %>
-<% end %>
-<!--カート機能が出来上がったら数量選択とカート追加のボタンを設置-->
+<div class="container">
+  <div class="row justify-content-center">
+    <%= image_tag('garland_pink.png') %>
+    <%= image_tag('garland_pink.png') %>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-10 col-lg-9 m-5 px-5 px-sm-0 mx-auto d-flex">
+      <div class="m-3">
+      <% if @item.image_id.attached? %>
+        <%= image_tag @item.image_id, size: "200x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
+      </div>
+
+
+    <div class="m-2 p-2">
+      <p>商品名：<%= @item.name %></p>
+      <p>商品説明：<%= @item.introduction %></p>
+      <p>¥<%= @item.add_tax_price.to_s(:delimited) %>（税込み）</p>
+        <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id.to_s %>
+      <p>数量
+        <%= f.select :amount, *[1..10] %>
+      </p>
+        <%= f.submit 'カートに入れる', class: "btn btn-success" %>
+        <% end %>
+    </div>
+   </div>
+  </div>
+</div>
