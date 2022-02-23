@@ -1,6 +1,6 @@
 
 <div class="container mt-5">
-  <div class="row mx-auto">
+  <div class="row justify-content-center">
     <div class="col-md-12">
       <%= image_tag('naganocake_top2.jpg') %>
     </div>
@@ -21,12 +21,11 @@
         <p>¥<%= item.price.to_s(:delimited) %></p>
       </div>
         <% end %>
-
-
   </div>
   <div class="row">
     <div class="text-right">
     <%= link_to "全ての商品を見る＞", items_path %>
+    </div>
     
   </div>
 
