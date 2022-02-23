@@ -5,5 +5,7 @@ class Address < ApplicationRecord
   '〒' + postal_code + ' ' + address + ' ' + name
   end
 
+  validates :postal_code, length: {is: 7}, numericality: {only_integer: true}
+	validates :address,:name, presence: true
 
 end
