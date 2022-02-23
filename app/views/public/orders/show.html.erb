@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <div class="col">
       <h2>注文履歴詳細</h2>
@@ -53,7 +53,9 @@
         </tr>
         <tr>
           <th class="table-active">ご請求額</th>
-          <td><%= @order.total_price.to_s(:delimited) %></td>
+          <td>
+            <%all_price =@order.postage + items_price%>
+            <%= all_price.to_s(:delimited) %></td>
         </tr>
       </table>
     </div>
