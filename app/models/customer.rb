@@ -15,5 +15,10 @@ class Customer < ApplicationRecord
     super && (self.is_deleted == false)
   end 
   
+  validates :family_name,:first_name,:family_name_kana,:first_name_kana,:address,
+             presence: true
+  validates :postcode, length: {is: 7}, numericality: {only_integer: true}
+  validates :phonenumber, length: {in: 10..11}, numericality: {only_integer: true}
+
 
 end

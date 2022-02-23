@@ -1,6 +1,7 @@
 <h2>ショッピングカート</h2>
 
-<%=link_to "カートを空にする",all_destroy_path,method: :delete%>
+<%=link_to all_destroy_path,method: :delete do%>
+<%end%>
 
 <table>
     <thead>
