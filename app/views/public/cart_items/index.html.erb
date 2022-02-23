@@ -18,7 +18,7 @@
     <%@cart_items.each do |cart_item|%>
       <tbody>
           <td>
-
+            <%=image_tag cart_item.item.get_image, size: "30x30" %>
             <%=cart_item.item.name%>
           </td>
           <td>
