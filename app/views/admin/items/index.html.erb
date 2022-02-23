@@ -1,24 +1,50 @@
-<h1>商品一覧</h1>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col">
+      <h2>商品一覧</h2>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <td>商品ID</td>
-      <td>商品名</td>
-      <td>税抜き価格</td>
-      <td></td>
-      <td>ステータス</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-    <tr>
-      <td><%= item.id %></td>
-      <td><%= item.name %></td>
-      <td><%= item.price %></td>
-      <td></td>
-      <td><%= item.is_active %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="col text-right">
+      <%= link_to new_admin_item_path, method: :get do %>
+        <i class="fa-solid fa-circle-plus fa-3x" style="color: gray;"></i>
+      <% end %>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-3">
+    <div class="col">
+      <table class="table table-borderless">
+        <thead class="thead-light">
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜き価格</th>
+            <th></th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= link_to item.name, item_path(item.id) %></td>
+            <td><%= item.price.to_s(:delimited) %></td>
+            <td></td>
+
+            <% if item.is_active == true %>
+              <td>販売中</td>
+            <% else %>
+              <td>false</td>
+            <% end %>
+
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
