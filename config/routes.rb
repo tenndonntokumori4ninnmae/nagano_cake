@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get '/quit', to: 'public/customers#quit', as: 'quit'
   delete 'cart_tems' , to: 'public/cart_items#destroy'
   get '/search', to: 'searches#search'
+  get '/genresearch', to: 'searches#genresearch'
 
 
 
