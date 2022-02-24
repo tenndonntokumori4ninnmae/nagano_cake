@@ -1,6 +1,6 @@
 <div class="container">
     <h2>商品編集</h2>
-    <%= form_with model: @item, url: admin_items_path, method: :post, local: true do |f| %>
+    <%= form_with model: @item, url: admin_item_path, method: :patch, local: true do |f| %>
       <div class="form-group">
         商品画像
         <%= f.file_field :image_id, accept: "image/*" %>
@@ -29,7 +29,7 @@
         <%=f.label:"販売停止"%>
       </div>
       <div class="form-group">
-        <%= f.submit"投稿", class: "btn btn-sm btn-success" %>
+        <%= f.submit"編集", class: "btn btn-sm btn-success" %>
       </div>
       <% end %>
 </div>

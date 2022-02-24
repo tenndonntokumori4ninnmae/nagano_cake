@@ -18,4 +18,8 @@ class Item < ApplicationRecord
     end
       image_id
   end
+
+  def self.search_for(content)
+      Item.where('name LIKE ?', '%' + content + '%')
+  end
 end
