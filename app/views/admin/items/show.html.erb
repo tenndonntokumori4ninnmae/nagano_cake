@@ -18,6 +18,8 @@
 
 
         <p>商品説明：<%= @item.introduction %></p>
+        
+        <p>ジャンル：<%=@item.genre.name%></p>
 
 
         <p>値段：<%= @item.price.to_s(:delimited) %></p>
