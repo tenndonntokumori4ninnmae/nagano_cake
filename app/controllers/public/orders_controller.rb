@@ -36,8 +36,8 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     if @order.save
       @cart_items.each do |cart_item|
-       @ordered_item = OrderedItem.new(order_id: @order.id, item_id: cart_item.item_id, amount: cart_item.amount, price: cart_item.item.price)
-       @ordered_item.save
+        @ordered_item = OrderedItem.new(order_id: @order.id, item_id: cart_item.item_id, amount: cart_item.amount, price: cart_item.item.price)
+        @ordered_item.save
         current_customer.cart_items.destroy_all
       end
       redirect_to thanks_path
