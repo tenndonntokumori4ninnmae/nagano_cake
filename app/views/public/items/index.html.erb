@@ -6,9 +6,11 @@
 
     <%= image_tag('garland_pink.png') %>
     <%= image_tag('garland_pink.png') %>
-
-
   </div>
+</div>
+
+
+</div class="container mt-3 mx-auto">
   <div class="row">
     <div class="col-xl-2">
       <ul class="list-group">
@@ -17,23 +19,28 @@
         <li class="list-group-item"><%= link_to genre.name, genresearch_path(content: genre.name) %></li>
       <% end %>
     </div>
-    <% @items.each do |item| %>
-    <div class="col-xl-2 col-md-2 m-3">
-      <div>
-        <% if item.image_id.attached? %>
-          <%= image_tag item.image_id, size: "200x200" %>
-        <% else %>
-          <%= image_tag 'no_image', size: "200x200" %>
+
+    <div class="col-xl-8 col-md-18">
+
+        <div class="items">
+
+        <% @items.each do |item| %>
+          <%= link_to item_path(item.id) do %>
+          <% if item.image_id.attached? %>
+            <%= image_tag item.image_id, size: "200x200" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "200x200" %>
+          <% end %>
+          <p class="text-dark"><%= item.name %></p>
+          <p class="text-dark">¥<%= item.price.to_s(:delimited) %></p>
         <% end %>
-        <p><%= link_to item.name, item_path(item.id) %></p>
-        <p>¥<%= item.price.to_s(:delimited) %></p>
-      </div>
+        <% end %>
+
+        </div>
     </div>
-    <% end %>
   </div>
 <%= paginate @items %>
 </div>
-
 
 
 
