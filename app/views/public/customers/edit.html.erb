@@ -1,29 +1,34 @@
 <div class="container justify-content-center">
   <h1>会員情報編集</h1>
     <div class="row justify-content-center">
-      <%= form_with model: @customer do |f| %>
-      <div class="form-group">
+      <%= form_with model: @customer, url: customer_path(current_customer.id), method: :patch, local:true do |f| %>
+        <div class="form-group">
         <label>氏名</label>
           <%= f.text_field :family_name, autofocus: true, id:"inputFamilyName", placeholder:"姓", class: "form-control" %>
           <%= f.text_field :first_name, autofocus: true, id:"inputFirstName", placeholder:"名", class: "form-control" %>
-      </div>  
-      <div class="form-group">
+        </div>
+        <div class="form-group">
         <label>カナ</label>
           <%= f.text_field :family_name_kana, autofocus: true, id:"inputFamilyNameKana", placeholder:"セイ", class: "form-control" %>
           <%= f.text_field :first_name_kana, autofocus: true, id:"inputFirstNameKana", placeholder:"メイ", class: "form-control" %>
-      </div>  
-      <div class="form-group">
+        </div>
+        <div class="form-group">
         <label>郵便番号</label>
           <%= f.text_field :postcode, autofocus: true, id:"inputPostcode", placeholder:"郵便番号", class: "form-control" %>
-      </div>
-      <div class="form-group">
+        </div>
+        <div class="form-group">
         <label>住所</label>
           <%= f.text_area :address, autofocus: true, id:"inputAddress", placeholder:"住所", class: "form-control" %>
-      </div>
-      <div class="form-group">
+        </div>
+        <div class="form-group">
+        <label>電話番号</label>
+          <%= f.text_field :phonenumber, autofocus: true, id:"inputPhonenumber", placeholder:"電話番号", class: "form-control" %>
+        </div>
+        <div class="form-group">
         <label>メールアドレス</label>
           <%= f.text_field :email, autofocus: true, id:"inputEmail", placeholder:"メールアドレス", class: "form-control" %>
-        </div>  
+        </div>
+
         <%= f.submit "編集内容を保存する", class: "btn btn-success" %>
 
         <%= link_to "退会する", quit_path(current_customer), class: "btn btn-danger" %>
