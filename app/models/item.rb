@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   has_many:ordered_items,dependent: :destroy
   belongs_to :genre
 
+  
+
 # 税込み計算
   def add_tax_price
     (self.price*1.08).round
