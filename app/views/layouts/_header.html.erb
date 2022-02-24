@@ -32,7 +32,7 @@
          </li>
          <li>
 
-           
+
 
            <%= link_to cart_items_path do %><span class="text-light text-white nav-link"><i class="fa-solid fa-cart-shopping"></i>カート</span><% end %>
 
@@ -58,6 +58,7 @@
          </li>
          <% end %>
       </ul>
+      <%= render 'searches/form', items: @item %>
     </nav>
   </div>
 </nav>

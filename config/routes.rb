@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   delete '/cart_items', to: 'public/cart_items#destroy_all',as: 'all_destroy'
   get '/quit', to: 'public/customers#quit', as: 'quit'
   delete 'cart_tems' , to: 'public/cart_items#destroy'
+  get '/search', to: 'searches#search'
 
 
 
