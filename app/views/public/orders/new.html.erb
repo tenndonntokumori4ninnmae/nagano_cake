@@ -27,7 +27,7 @@
         登録済み住所から選択
       </label>
     </div>
-    <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+    <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :address_display) %>
     <div class="form-check">
       <%= f.radio_button :address_if, "5", class: "form-check-input" %>
       <label class="form-check-label" for="flexRadioDefault1">
