@@ -1,4 +1,12 @@
 <div class="container mt-3">
+  <% if @customer.errors.any? %>
+    <%= @customer.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
   <div class="row justify-content-center">
     <h1>登録情報</h1>
     <p><%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-success" %></p>
