@@ -10,8 +10,12 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+    @ordered_items = @order.ordered_items
     @order.update(order_params)
-    redirect_to admin_order_path(@order.id)
+    if @order.status == 'confirm'
+      @ordered_items.update_all(status: 'craft_wait')
+    end
+    redirect_to request.referer
   end
 
   private

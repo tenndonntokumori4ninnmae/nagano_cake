@@ -1,8 +1,20 @@
 class Admin::OrderedItemsController < ApplicationController
+
   def update
     @ordered_item = OrderedItem.find(params[:id])
+    @order = @ordered_item.order
+    @ordered_items = @order.ordered_items
     @ordered_item.update(ordered_item_params)
-    redirect_to admin_order_path(@ordered_item.id)
+    if @ordered_items.exists?(status: 'in_crafting') == true
+      @order.update(status: 'crafting')
+
+    end
+    @completed_items = @ordered_items.where(status: 'complete')
+
+    if @ordered_items.count == @completed_items.count
+      @order.update(status: 'preparation')
+    end
+    redirect_to admin_order_path(@order.id)
   end
   private
 

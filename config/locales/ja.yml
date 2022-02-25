@@ -15,4 +15,4 @@ ja:
         no: "着手不可"
         craft_wait: "製作待ち"
         in_crafting: "製作中"
-        craft_complete: "製作完了"
+        complete: "製作完了"
