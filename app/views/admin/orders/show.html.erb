@@ -59,7 +59,7 @@
                   <td><%= ordered_item.amount %></td>
                   <td><%= (ordered_item.item.add_tax_price * ordered_item.amount).to_s(:delimited) %></td>
                   <td>
-                      <%= form_with model: ordered_item, url: admin_ordered_item_path, local: true do |f| %>
+                      <%= form_with model: ordered_item, url: admin_ordered_item_path(ordered_item.id), local: true do |f| %>
                           <%= f.select :status, [['着手不可', 'no'], ['製作待ち', 'craft_wait'],['製作中', 'in_crafting'],['製作完了', 'complete']], { include_blank: false, selected: ordered_item.status}, class: 'form-control-sm' %>
                           <%= f.submit "更新", class: 'btn btn-success' %>
                       <% end %>
@@ -89,7 +89,7 @@
           </tr>
           <tr>
               <th>請求金額合計</th>
-              
+
               <td>
                 <% item=items_price+@order.postage%>
                 <%= item.to_s(:delimited) %>円
