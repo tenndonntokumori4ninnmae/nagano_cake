@@ -11,8 +11,8 @@
   </div>
 
 <div class="row justify-content-center">
- <% @items.each do |item| %>
     <div class="col-xl-3 col-md-3">
+      <% @items.each do |item| %>
         <% if item.image_id.attached? %>
           <%= image_tag item.image_id, size: "200x200" %>
         <% else %>
@@ -20,5 +20,6 @@
         <% end %>
         <p><%= link_to item.name, item_path(item.id) %></p>
         <p>¥<%= item.price.to_s(:delimited) %></p>
+      <% end %>
     </div>
-  <% end %>
+</div>

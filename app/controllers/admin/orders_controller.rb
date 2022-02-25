@@ -12,6 +12,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @ordered_items = @order.ordered_items
     @order.update(order_params)
+
     if @order.status == 'confirm'
       @ordered_items.update_all(status: 'craft_wait')
     end
