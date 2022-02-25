@@ -1,2 +1,52 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="container mt-3">
+"  <% if @customer.errors.any? %>
+    <%= @customer.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  <div class="row justify-content-center">
+    <h1>登録情報</h1>
+    <p><%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-success" %></p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-xl-6">
+      <table class="table table-bordered">
+        <tr>
+          <td>氏名</td>
+          <td><%= @customer.family_name %><%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <td>カナ</td>
+          <td><%= @customer.family_name_kana %><%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= @customer.postcode %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.phonenumber %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to "配送先一覧", addresses_path(@customer.id), class: "btn btn-primary" %>
+  </div>
+
+  <div>︎　</div>
+  <div class="row justify-content-center">
+    <%= link_to "注文履歴一覧", orders_path(@customer.id), class: "btn btn-primary" %>
+  </div>
+</div>

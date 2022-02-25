@@ -1,2 +1,47 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<div class="container mt-3 mx-auto">
+  <div class="row">
+    <h1>商品一覧<span>★全<%= @items.total_count %>件</span></h1>
+  </div>
+  <div class="row justify-content-center">
+
+    <%= image_tag('garland_pink.png') %>
+    <%= image_tag('garland_pink.png') %>
+  </div>
+</div>
+
+
+</div class="container mt-3 mx-auto">
+  <div class="row">
+    <div class="col-xl-2">
+      <ul class="list-group">
+        <li class="list-group-item disabled" aria-disabled="true">ジャンル検索</li>
+      <% @genres.each do |genre| %>
+        <li class="list-group-item"><%= link_to genre.name, genresearch_path(content: genre.name) %></li>
+      <% end %>
+    </div>
+
+    <div class="col-xl-8 col-md-18">
+
+        <div class="items">
+
+        <% @items.each do |item| %>
+          <%= link_to item_path(item.id) do %>
+          <% if item.image_id.attached? %>
+            <%= image_tag item.image_id, size: "200x200" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "200x200" %>
+          <% end %>
+          <p class="text-dark"><%= item.name %></p>
+          <p class="text-dark">¥<%= item.price.to_s(:delimited) %></p>
+        <% end %>
+        <% end %>
+
+        </div>
+    </div>
+  </div>
+<%= paginate @items %>
+</div>
+
+
+
+

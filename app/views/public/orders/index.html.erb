@@ -1,2 +1,52 @@
-<h1>Public::Orders#index</h1>
-<p>Find me in app/views/public/orders/index.html.erb</p>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <h2>注文履歴一覧</h2>
+
+
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th><div class="text-left">注文日</div></th>
+            <th><div class="text-left">配送先</div></th>
+            <th><div class="text-left">注文商品</div></th>
+            <th><div class="text-left">支払金額</div></th>
+            <th><div class="text-left">ステータス</div></th>
+            <th><div class="text-left">注文詳細</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td><div class="text-left"><%= order.created_at.strftime('%Y/%m/%d') %></div></td>
+            <td>
+              <div class="text-left">
+                〒<%= order.postal_code %><br>
+                <%= order.address %><br>
+                <%= order.name %>
+              </div>
+            </td>
+            <td>
+              <div class="text-left">
+                <% items_price = 0 %>
+                <% all_price = 0 %>
+                <% order.ordered_items.each do |ordered_item| %>
+                <%= ordered_item.item.name %><br>
+                <% items_price += ordered_item.item.add_tax_price * ordered_item.amount %>
+                <% end %>
+              </div>
+            </td>
+            <td><div class="text-left">
+            <%all_price ="800".to_i + items_price%>
+            <%= all_price.to_s(:delimited) %>
+            </div></td>
+            <td><div class="text-left"><%= order.status_i18n %></div></td>
+            <td><%= link_to '表示する', order_path(order.id), class: 'btn btn-primary' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

@@ -1,2 +1,39 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-xl-2">
+      <ul class="list-group">
+        <li class="list-group-item disabled" aria-disabled="true">ジャンル検索</li>
+      <% @genres.each do |genre| %>
+        <li class="list-group-item"><%= link_to genre.name, genresearch_path(content: genre.name) %></li>
+      <% end %>
+    </div>
+    <div class="col-md-10">
+      <%= image_tag('naganocake_top2.jpg') %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <h1>新着商品</h1>
+  </div>
+  <div class="row">
+
+    <% @item.each do |item| %>
+　　　<div class="col-xl-2 col-md-6">
+        <% if item.image_id.attached? %>
+          <%= image_tag item.image_id, size: "180x180" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "180x180" %>
+        <% end %>
+        <p><%= link_to item.name, item_path(item.id) %></p>
+        <p>¥<%= item.price.to_s(:delimited) %></p>
+      </div>
+        <% end %>
+  </div>
+  <div class="row">
+    <div class="text-right">
+    <%= link_to "全ての商品を見る＞", items_path %>
+    </div>
+
+  </div>
+
+</div>
